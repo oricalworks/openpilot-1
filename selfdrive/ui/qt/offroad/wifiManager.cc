@@ -88,7 +88,6 @@ void WifiManager::refreshNetworks() {
   bus = QDBusConnection::systemBus();
   seen_networks.clear();
   seen_ssids.clear();
-
   ipv4_address = get_ipv4_address();
   for (Network &network : get_networks()) {
     if (seen_ssids.count(network.ssid)) {
@@ -98,7 +97,6 @@ void WifiManager::refreshNetworks() {
     seen_networks.push_back(network);
   }
 }
-
 
 QString WifiManager::get_ipv4_address(){
   if (raw_adapter_state != state_connected){
