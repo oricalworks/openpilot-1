@@ -44,13 +44,7 @@ bool fake_send = false;
 bool connected_once = false;
 bool ignition = false;
 
-volatile sig_atomic_t do_exit = 0;
-static void set_do_exit(int sig) {
-  do_exit = 1;
-}
-
 ExitHandler do_exit;
-
 struct tm get_time(){
   time_t rawtime;
   time(&rawtime);
@@ -525,10 +519,6 @@ int main() {
   LOG("set priority returns %d", err);
   err = set_core_affinity(3);
   LOG("set affinity returns %d", err);
-
-  // setup signal handlers
-  signal(SIGINT, (sighandler_t)set_do_exit);
-  signal(SIGTERM, (sighandler_t)set_do_exit);
 
   // check the environment
   if (getenv("STARTED")) {

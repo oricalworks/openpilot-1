@@ -31,9 +31,6 @@ struct ProcCache {
 }
 
 int main() {
-  signal(SIGINT, (sighandler_t)set_do_exit);
-  signal(SIGTERM, (sighandler_t)set_do_exit);
-
   PubMaster publisher({"procLog"});
 
   double jiffy = sysconf(_SC_CLK_TCK);
