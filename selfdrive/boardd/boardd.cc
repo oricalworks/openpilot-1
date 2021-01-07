@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include <signal.h>
 #include <unistd.h>
 #include <sched.h>
 #include <errno.h>
@@ -49,6 +48,8 @@ volatile sig_atomic_t do_exit = 0;
 static void set_do_exit(int sig) {
   do_exit = 1;
 }
+
+ExitHandler do_exit;
 
 struct tm get_time(){
   time_t rawtime;

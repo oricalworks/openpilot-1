@@ -180,7 +180,7 @@ FINGERPRINTS = {
 }
 
 # Don't use these fingerprints for fingerprinting, they are still used for ECU detection
-IGNORED_FINGERPRINTS = [CAR.IONIQ_HEV, CAR.KIA_NIRO_EV, CAR.ELANTRA_2020]
+IGNORED_FINGERPRINTS = [CAR.IONIQ_HEV, CAR.KIA_NIRO_EV, CAR.ELANTRA_2020, CAR.GENESIS_G70]
 
 FW_VERSIONS = {
   CAR.SONATA: {
@@ -200,7 +200,10 @@ FW_VERSIONS = {
     (Ecu.engine, 0x7e0, None): [b'\xf1\x81606EA051\x00\x00\x00\x00\x00\x00\x00\x00', ],
   },
   CAR.KIA_STINGER: {
-    (Ecu.eps, 0x7d4, None): [b'\xf1\x00CK  MDPS R 1.00 1.04 57700-J5420 4C4VL104', ],
+    (Ecu.eps, 0x7d4, None): [
+      b'\xf1\x00CK  MDPS R 1.00 1.04 57700-J5420 4C4VL104',
+      b'\xf1\x00CK  MDPS R 1.00 1.04 57700-J5200 4C2CL104',
+    ],
   },
   CAR.KIA_OPTIMA_HEV: {
     (Ecu.eps, 0x7d4, None): [b'\xf1\x00DE  MDPS C 1.00 1.09 56310G5301\x00 4DEHC109', ],
